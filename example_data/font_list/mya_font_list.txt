@@ -1,0 +1,10 @@
+AyarJuno-2LO8.ttf
+Myanmar3_2018.ttf
+Myanmar3_MultiOS.ttf
+Padauk-2j7v.ttf
+PadaukBold-vy3A.ttf
+PadaukBookBold-n2xg.ttf
+PadaukBook-lMZd.ttf
+Pyidaungsu-1.8.3_Bold.ttf
+Pyidaungsu-1.8.3_Numbers.ttf
+Pyidaungsu-1.8.3_Regular.ttf

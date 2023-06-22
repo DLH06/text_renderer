@@ -26,7 +26,7 @@ TEXT_DIR = DATA_DIR / "text"
 
 font_cfg = dict(
     font_dir=FONT_DIR,
-    font_list_file=FONT_LIST_DIR / "font_list.txt",
+    font_list_file=FONT_LIST_DIR / "mya_font_list.txt",
     font_size=(30, 31),
 )
 
@@ -36,9 +36,9 @@ perspective_transform = NormPerspectiveTransformCfg(20, 20, 1.5)
 def get_char_corpus():
     return CharCorpus(
         CharCorpusCfg(
-            text_paths=[TEXT_DIR / "chn_text.txt", TEXT_DIR / "eng_text.txt"],
+            text_paths=[TEXT_DIR / "mya_text.txt"],
             filter_by_chars=True,
-            chars_file=CHAR_DIR / "chn.txt",
+            chars_file=CHAR_DIR / "mya_chars.txt",
             length=(5, 10),
             char_spacing=(-0.3, 1.3),
             **font_cfg
@@ -47,7 +47,7 @@ def get_char_corpus():
 
 
 def base_cfg(
-    name: str, corpus, corpus_effects=None, layout_effects=None, layout=None, gray=True
+    name: str, corpus, corpus_effects=None, layout_effects=None, layout=None, gray=False
 ):
     return GeneratorCfg(
         num_image=50,
@@ -82,9 +82,9 @@ def enum_data():
         inspect.currentframe().f_code.co_name,
         corpus=EnumCorpus(
             EnumCorpusCfg(
-                text_paths=[TEXT_DIR / "enum_text.txt"],
+                text_paths=[TEXT_DIR / "mya_text.txt"],
                 filter_by_chars=True,
-                chars_file=CHAR_DIR / "chn.txt",
+                chars_file=CHAR_DIR / "mya_chars.txt",
                 **font_cfg
             ),
         ),
@@ -203,12 +203,12 @@ def imgaug_emboss_example():
 # fmt: off
 # The configuration file must have a configs variable
 configs = [
-    chn_data(),
+    # chn_data(),
     enum_data(),
-    rand_data(),
-    eng_word_data(),
-    same_line_data(),
-    extra_text_line_data(),
-    imgaug_emboss_example()
+    # rand_data(),
+    # eng_word_data(),
+    # same_line_data(),
+    # extra_text_line_data(),
+    # imgaug_emboss_example()
 ]
 # fmt: on
