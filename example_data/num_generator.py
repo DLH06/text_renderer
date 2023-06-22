@@ -7,13 +7,13 @@ class enGenerator:
     def __init__(self) -> None:
         pass
 
-    def generate_year(self):
+    def generate_year(self) -> str:
         return str(random.randint(1900, 2070))
 
-    def generate_month(self):
+    def generate_month(self) -> str:
         return str(random.randint(1, 12))
 
-    def generate_month_word(self):
+    def generate_month_word(self) -> str:
         return random.choice(
             [
                 "JAN",
@@ -31,10 +31,10 @@ class enGenerator:
             ]
         )
 
-    def generate_day(self):
+    def generate_day(self) -> str:
         return str(random.randint(1, 31))
 
-    def generate_date_num(self):
+    def generate_date_num(self) -> str:
         space = random.choice(["", " "])
         splitter = space + random.choice(["/", "-"]) + space
         dates = [
@@ -51,7 +51,7 @@ class enGenerator:
         ]
         return random.choice(dates)
 
-    def generate_date_word(self):
+    def generate_date_word(self) -> str:
         dates = [
             self.generate_day()
             + " "
@@ -66,7 +66,7 @@ class enGenerator:
         ]
         return random.choice(dates)
 
-    def generate_number(self):
+    def generate_number(self) -> str:
         return str(
             math.ceil(
                 random.random() * random.choice([0] + [10**i for i in range(1, 11)])
@@ -91,23 +91,23 @@ class myaGenerator:
         }
         self.translation = str.maketrans(self.mapping_dict)
 
-    def generate_year(self):
+    def generate_year(self) -> str:
         year = self.en_generator.generate_year()
         return year.translate(self.translation)
 
-    def generate_month(self):
+    def generate_month(self) -> str:
         month = self.en_generator.generate_month()
         return month.translate(self.translation)
 
-    def generate_day(self):
+    def generate_day(self) -> str:
         day = self.en_generator.generate_day()
         return day.translate(self.translation)
 
-    def generate_date_num(self):
+    def generate_date_num(self) -> str:
         date = self.en_generator.generate_date_num()
         return date.translate(self.translation)
 
-    def generate_number(self):
+    def generate_number(self) -> str:
         num = self.en_generator.generate_number()
         return num.translate(self.translation)
 
