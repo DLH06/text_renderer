@@ -1,5 +1,6 @@
 import random
 import math
+from tqdm import tqdm
 
 
 class enGenerator:
@@ -12,11 +13,30 @@ class enGenerator:
     def generate_month(self):
         return str(random.randint(1, 12))
 
+    def generate_month_word(self):
+        return random.choice(
+            [
+                "JAN",
+                "FEB",
+                "MAR",
+                "APR",
+                "MAY",
+                "JUN",
+                "JUL",
+                "AUG",
+                "SEP",
+                "OCT",
+                "NOV",
+                "DEC",
+            ]
+        )
+
     def generate_day(self):
         return str(random.randint(1, 31))
 
-    def generate_date(self):
-        splitter = random.choice(["/", "-"])
+    def generate_date_num(self):
+        space = random.choice(["", " "])
+        splitter = space + random.choice(["/", "-"]) + space
         dates = [
             self.generate_day()
             + splitter
@@ -27,6 +47,21 @@ class enGenerator:
             + splitter
             + self.generate_month()
             + splitter
+            + self.generate_day(),
+        ]
+        return random.choice(dates)
+
+    def generate_date_word(self):
+        dates = [
+            self.generate_day()
+            + " "
+            + self.generate_month_word()
+            + " "
+            + self.generate_year(),
+            self.generate_year()
+            + " "
+            + self.generate_month_word()
+            + " "
             + self.generate_day(),
         ]
         return random.choice(dates)
@@ -68,10 +103,27 @@ class myaGenerator:
         day = self.en_generator.generate_day()
         return day.translate(self.translation)
 
-    def generate_date(self):
-        date = self.en_generator.generate_date()
+    def generate_date_num(self):
+        date = self.en_generator.generate_date_num()
         return date.translate(self.translation)
 
     def generate_number(self):
         num = self.en_generator.generate_number()
         return num.translate(self.translation)
+
+
+if __name__ == "__main__":
+    mya_generator = myaGenerator()
+    en_generator = enGenerator()
+
+    NUM_DATE_EN = 1000
+    NUM_DATE_MYA = 1000
+
+    with open("text/mya_date.txt", "w") as f:
+        for i in tqdm(range(NUM_DATE_EN), desc="Generate in English"):
+            date = en_generator.generate_date_num()
+            f.writelines(date + "\n")
+
+        for i in tqdm(range(NUM_DATE_EN), desc="Generate in Burmese (Myanmar)"):
+            date = mya_generator.generate_date_num()
+            f.writelines(date + "\n")
