@@ -50,7 +50,8 @@ def base_cfg(
     name: str, corpus, corpus_effects=None, layout_effects=None, layout=None, gray=False
 ):
     return GeneratorCfg(
-        num_image=50,
+        # num_image=11589,
+        num_image=100,
         save_dir=OUT_DIR / name,
         render_cfg=RenderCfg(
             bg_dir=BG_DIR,
@@ -82,11 +83,27 @@ def enum_data():
         inspect.currentframe().f_code.co_name,
         corpus=EnumCorpus(
             EnumCorpusCfg(
-                text_paths=[TEXT_DIR / "mya_text.txt"],
+                # text_paths=[TEXT_DIR / "mya_text.txt"],
+                text_paths=[TEXT_DIR / "mya_ocr.txt"],
                 filter_by_chars=True,
                 chars_file=CHAR_DIR / "mya_chars.txt",
                 **font_cfg
             ),
+        ),
+        corpus_effects=Effects(
+            [
+                Padding(p=0.15, w_ratio=[0.2, 0.21], h_ratio=[0.7, 0.71], center=True),
+                ImgAugEffect(
+                    p=0.2,
+                    aug=iaa.OneOf(
+                        [
+                            iaa.Emboss(alpha=0.15, strength=(1.2, 1.3)),
+                            iaa.Dropout((0.01, 0.1), per_channel=0.5),
+                            iaa.GaussianBlur((0, 1.5)),
+                        ]
+                    ),
+                ),
+            ]
         ),
     )
 
