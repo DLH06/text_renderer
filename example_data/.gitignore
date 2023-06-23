@@ -1,2 +1,6 @@
 docker_output
 output
+*.ttf
+*.zip
+*.TTF
+*.txt
