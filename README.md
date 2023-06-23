@@ -247,3 +247,9 @@ If you use text_renderer in your research, please consider use the following Bib
   year =         {2021}
 }
 ```
+
+# Personal update
+## data:
+- Background images: https://drive.google.com/file/d/1izbx1Y_cDXNSOlgpe6oTx504SzRat5Fz/view?usp=sharing
+- English fonts: https://drive.google.com/file/d/1ZDiCfEQXVKiK9K4L_MyDB6968VKrwj8J/view?usp=sharing
+- Myanmar (Burmese) fonts: https://drive.google.com/file/d/1SOxCmIIv0EO1f9sCQx0A5Uc8eXSLKxbq/view?usp=sharing
