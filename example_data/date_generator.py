@@ -119,11 +119,12 @@ if __name__ == "__main__":
     NUM_DATE_EN = 1000
     NUM_DATE_MYA = 1000
 
-    with open("text/mya_date.txt", "w") as f:
+    with open("text/en/en_date.txt", "w") as f:
         for i in tqdm(range(NUM_DATE_EN), desc="Generate in English"):
             date = en_generator.generate_date_num()
             f.writelines(date + "\n")
 
+    with open("text/mya/mya_date.txt", "w") as f:
         for i in tqdm(range(NUM_DATE_EN), desc="Generate in Burmese (Myanmar)"):
             date = mya_generator.generate_date_num()
             f.writelines(date + "\n")

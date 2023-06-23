@@ -24,6 +24,6 @@ if __name__ == "__main__":
     NUM_NAME = 2000
 
     names = name_generator.generate_names(NUM_NAME)
-    with open("text/mya_name.txt", "w") as f:
+    with open("text/en/mya_name.txt", "w") as f:
         for name in names:
             f.writelines(name+"\n")

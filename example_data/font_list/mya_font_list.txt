@@ -1,6 +1,4 @@
 AyarJuno-2LO8.ttf
-Myanmar3_2018.ttf
-Myanmar3_MultiOS.ttf
 Padauk-2j7v.ttf
 PadaukBold-vy3A.ttf
 PadaukBookBold-n2xg.ttf
@@ -8,3 +6,68 @@ PadaukBook-lMZd.ttf
 Pyidaungsu-1.8.3_Bold.ttf
 Pyidaungsu-1.8.3_Numbers.ttf
 Pyidaungsu-1.8.3_Regular.ttf
+Cherry_Unicode.ttf
+Jasmine_Unicode.ttf
+KT_02.ttf
+KT_03.ttf
+MasterpieceUniRound.ttf
+MIUI Unicode.ttf
+mm3_05-Jan-2011.ttf
+mm3h.ttf
+mm3-multi-os.ttf
+mmrtextb.ttf
+mmrtext.ttf
+MON3Anonta1.ttf
+MyanmarAngoun.ttf
+MyanmarBlack.ttf
+myanmarcensus.ttf
+MyanmarGantGaw.ttf
+MyanmarKhway.ttf
+MyanmarNjaun.ttf
+MyanmarPaOhOne.ttf
+MyanmarPhetsot.ttf
+MyanmarPixelSmooth.ttf
+MyanmarPixel.ttf
+Myanmar_Rosemarry.ttf
+MyanmarSansPro.ttf
+MyanmarTagu.ttf
+MyanmarTaungyi.ttf
+MyanmarTextMelano.ttf
+MyanmarYinmar.ttf
+NamKhoneUnicode.ttf
+Namkhon_Web_pro.ttf
+NK Grand.ttf
+NK_SSmart2.ttf
+NK_SSmart3.ttf
+NK_SSmart4.ttf
+Notosan Myanmar UI Bold.ttf
+NotoSansMyanmar-Bold.ttf
+NotoSansMyanmar-Regular.ttf
+NotoSansMyanmarUI-Bold.ttf
+NotoSansMyanmarUI-Regular.ttf
+Padauk-bold.ttf
+padauk-bookbold.ttf
+padauk-book.ttf
+PadaukGhostтАЛ.ttf
+PadaukGrandPro v2.ttf
+Padauk Kyaungchikote.ttf
+PadaukSagar.ttf
+PadaukSgaw-Bold.ttf
+PadaukSgaw-bookbold.ttf
+PadaukSgaw-book.ttf
+PadaukSgaw.ttf
+Padauk.ttf
+Padauk-Zawgyi.ttf
+PangLong_2011feb7.ttf
+PaohDragonApp.ttf
+Parabaik_UTN11-3.ttf
+pyidaungsu-1.2.ttf
+pyidaungsu-1.3.ttf
+pyidaungsu.ttf
+Samsung Myanmar.ttf
+Shan Unicode.ttf
+ThanLwin.ttf
+TharLon.ttf
+WinUniInnwa.ttf
+YoeYar-One Bold.ttf
+Yunghkio.ttf

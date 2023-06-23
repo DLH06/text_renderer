@@ -5,7 +5,7 @@ import string
 class passportGenerator:
     def __init__(self) -> None:
         self.sex = ["N", "M"]
-        with open("text/mya_township.txt", "r") as f:
+        with open("text/en/mya_township.txt", "r") as f:
             self.township = f.readlines()
             self.township = [
                 each.replace("\n", "").replace("-", "").replace(" ", "").upper()
@@ -39,7 +39,7 @@ if __name__ == "__main__":
     NUM_NO = 1000
     NUM_TYPE = 500
 
-    with open("text/passport.txt", "w") as f:
+    with open("text/en/passport.txt", "w") as f:
         for _ in range(NUM_NRC):
             f.writelines(pp_generator.nrc_generate() + "\n")
         for _ in range(NUM_NO):
