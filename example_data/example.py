@@ -52,8 +52,8 @@ def base_cfg(
     name: str, corpus, corpus_effects=None, layout_effects=None, layout=None, gray=False
 ):
     return GeneratorCfg(
-        num_image=16223,
-        # num_image=6012,
+        num_image=16223, # myanmar
+        # num_image=6012, # english
         save_dir=OUT_DIR / name,
         render_cfg=RenderCfg(
             bg_dir=BG_DIR,
