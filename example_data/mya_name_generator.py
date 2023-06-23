@@ -20,7 +20,10 @@ class myaNameGenerator:
 
 if __name__ == "__main__":
     name_generator = myaNameGenerator()
-    names = name_generator.generate_names(10)
+
+    NUM_NAME = 2000
+
+    names = name_generator.generate_names(NUM_NAME)
     with open("text/mya_name.txt", "w") as f:
         for name in names:
             f.writelines(name+"\n")
