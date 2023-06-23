@@ -25,7 +25,9 @@ FONT_LIST_DIR = DATA_DIR / "font_list"
 TEXT_DIR = DATA_DIR / "text"
 
 font_cfg = dict(
-    font_dir=FONT_DIR,
+    # font_dir=FONT_DIR / "en",
+    # font_list_file=FONT_LIST_DIR / "en_font_list.txt",
+    font_dir=FONT_DIR / "mya",
     font_list_file=FONT_LIST_DIR / "mya_font_list.txt",
     font_size=(30, 31),
 )
@@ -50,8 +52,8 @@ def base_cfg(
     name: str, corpus, corpus_effects=None, layout_effects=None, layout=None, gray=False
 ):
     return GeneratorCfg(
-        # num_image=11589,
-        num_image=100,
+        num_image=16223,
+        # num_image=6012,
         save_dir=OUT_DIR / name,
         render_cfg=RenderCfg(
             bg_dir=BG_DIR,
@@ -83,8 +85,8 @@ def enum_data():
         inspect.currentframe().f_code.co_name,
         corpus=EnumCorpus(
             EnumCorpusCfg(
-                # text_paths=[TEXT_DIR / "mya_text.txt"],
-                text_paths=[TEXT_DIR / "mya_ocr.txt"],
+                # text_paths=[TEXT_DIR / "en/en_ocr.txt"],
+                text_paths=[TEXT_DIR / "mya/mya_ocr.txt"],
                 filter_by_chars=True,
                 chars_file=CHAR_DIR / "mya_chars.txt",
                 **font_cfg

@@ -1,0 +1,58 @@
+abcya_font.ttf
+Aganè_45_(light).ttf
+Aganè_55_(roman)_sign.ttf
+Aganè_55_(roman).ttf
+Aganè_65_(Bold)_sign.ttf
+Aganè_65_(Bold).ttf
+Aganè_75_(Extra Bold)_sign.ttf
+Aganè_75_(Extra Bold).ttf
+ANNA____.ttf
+AvrileSans-CondensedBlackItalic.ttf
+AvrileSans-CondensedBlack.ttf
+AvrileSans-CondensedBoldItalic.ttf
+AvrileSans-CondensedBold.ttf
+AvrileSans-CondensedExtraBoldItalic.ttf
+AvrileSans-CondensedExtraBold.ttf
+AvrileSans-CondensedExtraLightItalic.ttf
+AvrileSans-CondensedExtraLight.ttf
+AvrileSans-CondensedItalic.ttf
+AvrileSans-CondensedLightItalic.ttf
+AvrileSans-CondensedLight.ttf
+AvrileSans-CondensedMediumItalic.ttf
+AvrileSans-CondensedMedium.ttf
+AvrileSans-CondensedSemiBoldItalic.ttf
+AvrileSans-CondensedSemiBold.ttf
+AvrileSans-CondensedThinItalic.ttf
+AvrileSans-CondensedThin.ttf
+AvrileSans-Condensed.ttf
+EBGaramond-Italic-VariableFont_wght.ttf
+EBGaramond-VariableFont_wght.ttf
+Futura Bold font.ttf
+Futura Bold Italic font.ttf
+Futura Book font.ttf
+Futura Book Italic font.ttf
+Futura Extra Black font.ttf
+Futura Heavy font.ttf
+Futura Heavy Italic font.ttf
+futura light bt.ttf
+Futura Light font.ttf
+Futura Light Italic font.ttf
+futura medium bt.ttf
+futura medium condensed bt.ttf
+Futura Medium Italic font.ttf
+Futura XBlk BT.ttf
+futur.ttf
+Helvetica-BoldOblique.ttf
+Helvetica-Bold.ttf
+helvetica-light-587ebe5a59211.ttf
+Helvetica-Oblique.ttf
+Helvetica.ttf
+MetaBoldLF-Roman.ttf
+rockb.ttf
+ROCK.TTF
+tt0205m_.ttf
+unicode.futurabb.ttf
+unicode.futurab.ttf
+VAGRundschriftD.ttf
+verdanab.ttf
+Verdana.ttf
