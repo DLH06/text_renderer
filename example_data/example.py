@@ -185,11 +185,11 @@ def extra_text_line_data():
         inspect.currentframe().f_code.co_name,
         layout=ExtraTextLineLayout(),
         corpus=[
-            CharCorpus(
-                CharCorpusCfg(
+            EnumCorpus(
+                EnumCorpusCfg(
                     text_paths=[
                         TEXT_DIR / "mya/mya_ocr.txt",
-                        TEXT_DIR / "en/en_ocr.txt",
+                        # TEXT_DIR / "en/en_ocr.txt",
                     ],
                     filter_by_chars=True,
                     chars_file=CHAR_DIR / "mya_chars.txt",
@@ -199,11 +199,11 @@ def extra_text_line_data():
                     font_size=(30, 31),
                 ),
             ),
-            CharCorpus(
-                CharCorpusCfg(
+            EnumCorpus(
+                EnumCorpusCfg(
                     text_paths=[
                         TEXT_DIR / "en/en_ocr.txt",
-                        TEXT_DIR / "mya/mya_ocr.txt",
+                        # TEXT_DIR / "mya/mya_ocr.txt",
                     ],
                     filter_by_chars=True,
                     chars_file=CHAR_DIR / "mya_chars.txt",
@@ -214,7 +214,7 @@ def extra_text_line_data():
                 ),
             ),
         ],
-        corpus_effects=[Effects([Padding()]), NoEffects()],
+        # corpus_effects=[Effects([Padding()]), NoEffects()],
         layout_effects=Effects(Line(p=1)),
     )
 
@@ -236,11 +236,11 @@ def imgaug_emboss_example():
 # The configuration file must have a configs variable
 configs = [
     # chn_data(),
-    enum_data(),
+    # enum_data(),
     # rand_data(),
     # eng_word_data(),
     # same_line_data(),
-    # extra_text_line_data(),
+    extra_text_line_data(),
     # imgaug_emboss_example()
 ]
 # fmt: on
