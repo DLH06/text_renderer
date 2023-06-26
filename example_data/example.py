@@ -52,8 +52,9 @@ def base_cfg(
     name: str, corpus, corpus_effects=None, layout_effects=None, layout=None, gray=False
 ):
     return GeneratorCfg(
-        num_image=16223, # myanmar
+        # num_image=16223, # myanmar
         # num_image=6012, # english
+        num_image=10,
         save_dir=OUT_DIR / name,
         render_cfg=RenderCfg(
             bg_dir=BG_DIR,
@@ -94,14 +95,18 @@ def enum_data():
         ),
         corpus_effects=Effects(
             [
-                Padding(p=0.15, w_ratio=[0.2, 0.21], h_ratio=[0.7, 0.71], center=True),
+                Padding(p=0.1, w_ratio=[0.2, 0.21], h_ratio=[0.7, 0.71], center=True),
                 ImgAugEffect(
-                    p=0.2,
-                    aug=iaa.OneOf(
+                    p=0.15,
+                    aug=iaa.SomeOf((1, 2),
                         [
                             iaa.Emboss(alpha=0.15, strength=(1.2, 1.3)),
-                            iaa.Dropout((0.01, 0.1), per_channel=0.5),
-                            iaa.GaussianBlur((0, 1.5)),
+                            iaa.GaussianBlur((0.5, 1.5)),
+                            iaa.OneOf([
+                                iaa.Dropout(0.3, per_channel=0.5),
+                                iaa.SaltAndPepper(0.3, per_channel=True)
+                            ])
+                            
                         ]
                     ),
                 ),
