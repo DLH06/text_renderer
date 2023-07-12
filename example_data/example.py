@@ -29,7 +29,7 @@ font_cfg = dict(
     # font_list_file=FONT_LIST_DIR / "en_font_list.txt",
     font_dir=FONT_DIR / "mya",
     font_list_file=FONT_LIST_DIR / "mya_font_list.txt",
-    font_size=(30, 31),
+    font_size=(20, 31),
 )
 
 perspective_transform = NormPerspectiveTransformCfg(20, 20, 1.5)
@@ -96,29 +96,42 @@ def enum_data():
         corpus_effects=Effects(
             [
                 Line(
-                    0.1,
+                    0.2,
                     thickness=(2, 3),
                     line_pos_p=(0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1),
                     # top, bottom, left, right, top_left, top_right, bottom_left, bottom_right, horizontal_middle, vertical_middle
                 ),
                 Padding(p=0.1, w_ratio=[0.2, 0.21], h_ratio=[0.7, 0.71], center=True),
                 ImgAugEffect(
-                    p=0.15,
+                    p=0.1,
                     aug=iaa.SomeOf(
                         (1, 2),
                         [
                             iaa.Emboss(alpha=0.15, strength=(1.2, 1.3)),
-                            iaa.GaussianBlur((0.5, 1.5)),
+                            iaa.OneOf([
+                                iaa.GaussianBlur((0.5, 1.1)),
+                                iaa.AverageBlur(k=(2, 3)),
+                                iaa.MotionBlur(k=4),
+                                iaa.MedianBlur(k=(1, 3)),
+                            ]),
+                            iaa.OneOf([
+                                iaa.pillike.Autocontrast((10, 20), per_channel=True),
+                                iaa.pillike.EnhanceColor(),
+                                iaa.pillike.EnhanceSharpness(),
+                                iaa.pillike.FilterEdgeEnhanceMore(),
+                            ]),
                             iaa.OneOf(
                                 [
                                     iaa.Dropout(0.3, per_channel=0.5),
                                     iaa.SaltAndPepper(0.3, per_channel=True),
+                                    iaa.Invert(0.5),
+                                    iaa.AdditiveGaussianNoise(scale=(0.1, 0.2*255))
                                 ]
                             ),
                         ],
                     ),
                 ),
-            ]
+            ],
         ),
     )
 
@@ -188,8 +201,8 @@ def extra_text_line_data():
             EnumCorpus(
                 EnumCorpusCfg(
                     text_paths=[
-                        TEXT_DIR / "mya/mya_ocr.txt",
                         # TEXT_DIR / "en/en_ocr.txt",
+                        TEXT_DIR / "mya/mya_ocr.txt",
                     ],
                     filter_by_chars=True,
                     chars_file=CHAR_DIR / "mya_chars.txt",
@@ -202,8 +215,8 @@ def extra_text_line_data():
             EnumCorpus(
                 EnumCorpusCfg(
                     text_paths=[
-                        TEXT_DIR / "en/en_ocr.txt",
-                        # TEXT_DIR / "mya/mya_ocr.txt",
+                        # TEXT_DIR / "en/en_ocr.txt",
+                        TEXT_DIR / "mya/mya_ocr.txt",
                     ],
                     filter_by_chars=True,
                     chars_file=CHAR_DIR / "mya_chars.txt",
@@ -214,8 +227,32 @@ def extra_text_line_data():
                 ),
             ),
         ],
-        # corpus_effects=[Effects([Padding()]), NoEffects()],
-        layout_effects=Effects(Line(p=1)),
+        corpus_effects=[Effects([
+            Line(
+                    0.1,
+                    thickness=(2, 3),
+                    line_pos_p=(0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1),
+                    # top, bottom, left, right, top_left, top_right, bottom_left, bottom_right, horizontal_middle, vertical_middle
+                ),
+            # Padding(p=0.1, w_ratio=[0.2, 0.21], h_ratio=[0.7, 0.71], center=True),
+            ImgAugEffect(
+                p=1,
+                aug=iaa.SomeOf(
+                    (1, 2),
+                    [
+                        iaa.Emboss(alpha=0.15, strength=(1.2, 1.3)),
+                        iaa.GaussianBlur((1, 1.5)),
+                        iaa.OneOf(
+                            [
+                                iaa.Dropout(0.3, per_channel=0.5),
+                                iaa.SaltAndPepper(0.3, per_channel=True),
+                            ]
+                        ),
+                    ],
+                ),
+            ),
+        ]), NoEffects()],
+        # layout_effects=Effects(Line(p=1)),
     )
 
 
@@ -236,11 +273,11 @@ def imgaug_emboss_example():
 # The configuration file must have a configs variable
 configs = [
     # chn_data(),
-    # enum_data(),
+    enum_data(),
     # rand_data(),
     # eng_word_data(),
     # same_line_data(),
-    extra_text_line_data(),
+    # extra_text_line_data(),
     # imgaug_emboss_example()
 ]
 # fmt: on
