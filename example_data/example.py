@@ -101,7 +101,7 @@ def enum_data():
                     line_pos_p=(0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1),
                     # top, bottom, left, right, top_left, top_right, bottom_left, bottom_right, horizontal_middle, vertical_middle
                 ),
-                Padding(p=0.1, w_ratio=[0.2, 0.21], h_ratio=[0.7, 0.71], center=True),
+                Padding(p=0.1, w_ratio=[0.05, 0.25], h_ratio=[0.05, 0.75], center=True),
                 ImgAugEffect(
                     p=0.1,
                     aug=iaa.SomeOf(
