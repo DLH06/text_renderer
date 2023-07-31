@@ -36,7 +36,7 @@ class enGenerator:
 
     def generate_date_num(self) -> str:
         space = random.choice(["", " "])
-        splitter = space + random.choice(["/", "-"]) + space
+        splitter = space + random.choice(["/", "-", "."]) + space
         dates = [
             self.generate_day()
             + splitter
@@ -116,8 +116,8 @@ if __name__ == "__main__":
     mya_generator = myaGenerator()
     en_generator = enGenerator()
 
-    NUM_DATE_EN = 1000
-    NUM_DATE_MYA = 1000
+    NUM_DATE_EN = 3000
+    NUM_DATE_MYA = 3000
 
     with open("text/en/en_date.txt", "w") as f:
         for i in tqdm(range(NUM_DATE_EN), desc="Generate in English"):

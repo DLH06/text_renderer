@@ -35,9 +35,9 @@ class passportGenerator:
 if __name__ == "__main__":
     pp_generator = passportGenerator()
 
-    NUM_NRC = 1000
-    NUM_NO = 1000
-    NUM_TYPE = 500
+    NUM_NRC = 3000
+    NUM_NO = 3000
+    NUM_TYPE = 1000
 
     with open("text/en/passport.txt", "w") as f:
         for _ in range(NUM_NRC):

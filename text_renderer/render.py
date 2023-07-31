@@ -1,4 +1,5 @@
 from typing import Tuple, List
+import random
 
 from PIL import Image
 from loguru import logger
@@ -244,11 +245,21 @@ class Render:
         if self.cfg.gray:
             image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-        if self.cfg.height != -1 and self.cfg.height != image.shape[0]:
+        # if self.cfg.height != -1 and self.cfg.height != image.shape[0]:
+        #     height, width = image.shape[:2]
+        #     width = int(width // (height / self.cfg.height))
+        #     image = cv2.resize(
+        #         image, (width, self.cfg.height), interpolation=cv2.INTER_CUBIC
+        #     )
+
+        # return image
+        font_size = self.cfg.height
+        new_h = random.randint(18, font_size)
+        if new_h != -1 and new_h != image.shape[0]:
             height, width = image.shape[:2]
-            width = int(width // (height / self.cfg.height))
+            width = int(width // (height / new_h))
             image = cv2.resize(
-                image, (width, self.cfg.height), interpolation=cv2.INTER_CUBIC
+                image, (width, new_h), interpolation=cv2.INTER_CUBIC
             )
 
         return image

@@ -21,7 +21,7 @@ class myaNameGenerator:
 if __name__ == "__main__":
     name_generator = myaNameGenerator()
 
-    NUM_NAME = 2000
+    NUM_NAME = 5000
 
     names = name_generator.generate_names(NUM_NAME)
     with open("text/en/mya_name.txt", "w") as f:
