@@ -27,3 +27,4 @@ Padauk.ttf
 pyidaungsu-1.2.ttf
 pyidaungsu-1.3.ttf
 pyidaungsu.ttf
+MyanmarHandwriting.ttf

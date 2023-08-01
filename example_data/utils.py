@@ -32,7 +32,7 @@ if __name__ == "__main__":
         ("text/mya/mya_name.txt", -1, 1),
         ("text/mya/mya_new_2.txt", -1, 1),
         ("text/mya/mya_text.txt", -1, 200),
-        ("text/mya/mya_blood_type.txt", -1, 200)
+        ("text/mya/mya_blood_type.txt", -1, 200),
 
         ("text/mya/locations/city.txt", -1, 10),
         ("text/mya/locations/district.txt", -1, 50),
