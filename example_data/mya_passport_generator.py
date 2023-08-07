@@ -1,11 +1,13 @@
 import random
 import string
+import os
+from tqdm import tqdm
 
 
 class passportGenerator:
     def __init__(self) -> None:
         self.sex = ["N", "M"]
-        with open("text/en/mya_township.txt", "r") as f:
+        with open("text/db/mya_township.txt", "r") as f:
             self.township = f.readlines()
             self.township = [
                 each.replace("\n", "").replace("-", "").replace(" ", "").upper()
@@ -33,16 +35,17 @@ class passportGenerator:
 
 
 if __name__ == "__main__":
+    os.makedirs("text/gen_base/", exist_ok=True)
     pp_generator = passportGenerator()
 
-    NUM_NRC = 3000
-    NUM_NO = 3000
-    NUM_TYPE = 1000
+    NUM_NRC = 15000
+    NUM_NO = 15000
+    NUM_TYPE = 10000
 
-    with open("text/en/passport.txt", "w") as f:
-        for _ in range(NUM_NRC):
+    with open("text/gen_base/en_passport.txt", "w") as f:
+        for _ in tqdm(range(NUM_NRC), desc="en nrc generate"):
             f.writelines(pp_generator.nrc_generate() + "\n")
-        for _ in range(NUM_NO):
+        for _ in tqdm(range(NUM_NO), desc="en num id generate"):
             f.writelines(pp_generator.no_generate() + "\n")
-        for _ in range(NUM_TYPE):
+        for _ in tqdm(range(NUM_TYPE), desc="type generate"):
             f.writelines(pp_generator.type_generate() + "\n")

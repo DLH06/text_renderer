@@ -1,10 +1,12 @@
 import random
 from typing import List
+import os
+from tqdm import tqdm
 
 
 class myaNameGenerator:
     def __init__(self) -> None:
-        with open("text/mya_name_part.txt", "r") as f:
+        with open("text/db/mya_name_part.txt", "r") as f:
             self.data = f.readlines()
             self.data = [each.replace("\n", "") for each in self.data]
 
@@ -19,11 +21,12 @@ class myaNameGenerator:
 
 
 if __name__ == "__main__":
+    os.makedirs("text/gen_base/", exist_ok=True)
     name_generator = myaNameGenerator()
 
-    NUM_NAME = 5000
+    NUM_NAME = 15000
 
     names = name_generator.generate_names(NUM_NAME)
-    with open("text/en/mya_name.txt", "w") as f:
-        for name in names:
+    with open("text/gen_base/en_name.txt", "w") as f:
+        for name in tqdm(names, desc="write name"):
             f.writelines(name+"\n")

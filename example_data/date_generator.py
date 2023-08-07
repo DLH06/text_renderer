@@ -1,6 +1,7 @@
 import random
 import math
 from tqdm import tqdm
+import os
 
 
 class enGenerator:
@@ -34,7 +35,7 @@ class enGenerator:
     def generate_day(self) -> str:
         return str(random.randint(1, 31))
 
-    def generate_date_num(self) -> str:
+    def generate_date_num(self, can_convert=False) -> str:
         space = random.choice(["", " "])
         splitter = space + random.choice(["/", "-", "."]) + space
         dates = [
@@ -49,7 +50,11 @@ class enGenerator:
             + splitter
             + self.generate_day(),
         ]
-        return random.choice(dates)
+        if can_convert:
+            return random.choice(dates)
+        else:
+            date_word = self.generate_date_word()
+            return random.choice([date_word, random.choice(dates)])
 
     def generate_date_word(self) -> str:
         dates = [
@@ -90,6 +95,8 @@ class myaGenerator:
             "0": "၀",
         }
         self.translation = str.maketrans(self.mapping_dict)
+        with open("text/db/district_nrc.txt", "r") as f:
+            self.district_nrc = [each.replace("\n", "") for each in f.readlines()]
 
     def generate_year(self) -> str:
         year = self.en_generator.generate_year()
@@ -104,27 +111,58 @@ class myaGenerator:
         return day.translate(self.translation)
 
     def generate_date_num(self) -> str:
-        date = self.en_generator.generate_date_num()
+        date = self.en_generator.generate_date_num(can_convert=True)
         return date.translate(self.translation)
 
     def generate_number(self) -> str:
         num = self.en_generator.generate_number()
         return num.translate(self.translation)
+    
+    def generate_id(self, split_part=False) -> str:
+        num = "".join([random.choice(list(self.mapping_dict.values())) for _ in range(6)])
+        region = str(random.randint(1, 15)).translate(self.translation)
+        type = random.choice(["နိုင်", "ဧည့်", "ပြု", "သာသနာ", "ယာယီ", "စ"])
+        district = random.choice(self.district_nrc)
+
+        id_no = region + "/" + district + "({})".format(type) + num
+        if split_part:
+            return region + "/" + district + "({})".format(type), num
+        else:
+            return id_no
 
 
 if __name__ == "__main__":
+    os.makedirs("text/gen_base/", exist_ok=True)
+
     mya_generator = myaGenerator()
     en_generator = enGenerator()
 
-    NUM_DATE_EN = 3000
-    NUM_DATE_MYA = 3000
+    NUM_DATE_EN = 15000
+    NUM_DATE_MYA = 15000
+    NUM_MYA_ID = 15000
+    NUM_MYA_ID_PART = 15000
 
-    with open("text/en/en_date.txt", "w") as f:
+    with open("text/gen_base/date_cant_convert.txt", "w") as f:
         for i in tqdm(range(NUM_DATE_EN), desc="Generate in English"):
             date = en_generator.generate_date_num()
             f.writelines(date + "\n")
 
-    with open("text/mya/mya_date.txt", "w") as f:
+    with open("text/gen_base/date_can_convert.txt", "w") as f:
         for i in tqdm(range(NUM_DATE_EN), desc="Generate in Burmese (Myanmar)"):
             date = mya_generator.generate_date_num()
             f.writelines(date + "\n")
+    
+    with open("text/gen_base/mya_id_full.txt", "w") as f:
+        for i in tqdm(range(NUM_MYA_ID), desc="Generate ID in Burmese (Myanmar)"):
+            date = mya_generator.generate_id()
+            f.writelines(date + "\n")
+    
+    with open("text/gen_base/mya_id_part_1.txt", "w") as f:
+        for i in tqdm(range(NUM_MYA_ID_PART), desc="Generate ID in Burmese (Myanmar)"):
+            id = mya_generator.generate_id(split_part=True)[0]
+            f.writelines(id + "\n")
+    
+    with open("text/gen_base/mya_id_part_2.txt", "w") as f:
+        for i in tqdm(range(NUM_MYA_ID_PART), desc="Generate ID in Burmese (Myanmar)"):
+            id = mya_generator.generate_id(split_part=True)[1]
+            f.writelines(id + "\n")

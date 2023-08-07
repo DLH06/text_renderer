@@ -251,10 +251,10 @@ class Render:
         #     image = cv2.resize(
         #         image, (width, self.cfg.height), interpolation=cv2.INTER_CUBIC
         #     )
-
         # return image
+    
         font_size = self.cfg.height
-        new_h = random.randint(18, font_size)
+        new_h = random.randint(20, font_size)
         if new_h != -1 and new_h != image.shape[0]:
             height, width = image.shape[:2]
             width = int(width // (height / new_h))
